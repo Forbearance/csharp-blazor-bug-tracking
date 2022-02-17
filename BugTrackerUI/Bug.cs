@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BugTrackerUI
 {
-    public class Bug
-    {
-        public int Id { get; set; }
+  public class Bug
+  {
+    public int Id { get; set; }
 
-        public string Title { get; set; }
+    [Required]
+    public string Title { get; set; }
 
-        public string Description { get; set; }
+    [Required]
+    [MinLength(10)]
+    public string Description { get; set; }
 
-        public int Priority { get; set; }
-    }
+    [Required]
+    [Range(minimum:1, maximum:5)]
+    public int Priority { get; set; }
+  }
 }
